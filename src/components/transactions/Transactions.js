@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import TransactionItem from './TransactionItem';
+// import CreateOrder from './CreateOrder';
 import Pagination from './../pagination/pagination';
 import {getTransactions} from './../../api/apiCall';
 
@@ -10,7 +11,6 @@ const Transactions = () => {
     const [limit,setLimit] = useState(10);
     const [sortItem, setSortItem] = useState('created');
     const [sortDesc,setSortDesc] = useState('DESC');
-
     
     let sortToggle = false;
 
@@ -40,11 +40,20 @@ const Transactions = () => {
 
     return (
         <div className='container'>
-            <p className='text-right'>Total: <span className='font-weight-bolder'>{count}</span></p>
+            {/* <div className='row'>
+                <CreateOrder/>
+            </div> */}
+            <h2 className='font-weight-bolder text-left'>View Orders</h2>
+
             <table
                 className='table table-sm table-striped table-dark nowrap'
                 data-page-size={limit}>
                 <thead>
+                    <tr>
+                        <td>
+                            <p className='text-right m-2'>Total: <span className='font-weight-bolder'>{count}</span></p>
+                        </td>
+                    </tr>
                     <tr className='d-flex'>
                         <th className='col-3' onClick={()=>sortPage('code',sortToggle = !sortToggle)}>Code</th>
                         <th className='col-3' onClick={() => sortPage('first_name', sortToggle = !sortToggle)}>Name</th>
@@ -58,11 +67,16 @@ const Transactions = () => {
                         transactions? transactions.map(item=>{
                             return <TransactionItem transaction={item} key={item.id}/>
                         })
-                        : <tr>No records found</tr>
+                        : <tr>
+                                <td>No records found</td>
+                        </tr>
                     }
                 </tbody>
             </table>
-            <Pagination limit={limit} total={count} paginate={paginate}/>
+            <div>
+                <Pagination limit={limit} total={count} paginate={paginate} />
+            </div>
+            
         </div>
     )
 }

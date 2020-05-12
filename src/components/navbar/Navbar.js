@@ -39,7 +39,7 @@ const Navbar = () =>{
                     {
                         isLoggedIn ? <Sidebar /> : <Login authUser={authUser} /> 
                     }
-                    <div className='col-md-9 ml-sm-auto col-lg-10 pt-3 px-4'>
+                    <div className='col-sm-9 col-md-9 col-lg-9 ml-sm-auto col-lg-10 pt-3 px-4'>
                         <DashboardLinks/>
                     </div>
                 </div>

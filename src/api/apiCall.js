@@ -47,3 +47,21 @@ export const getProducts = (params) => {
         })
 };
 
+export const createProduct = (body) => {
+    return API.post(`products`,body)
+        .then(response => {
+            let data = response.data;
+
+            return data;
+        })
+};
+
+export const getUsers= (params) => {
+    return API.get(`users?${params}`)
+        .then(response => {
+            let data = response.data;
+
+            return data;
+        })
+}
+

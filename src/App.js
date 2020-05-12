@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Navbar/>
-      <ToastContainer />
+      <ToastContainer limit={1}/>
     </>
   );
 }

@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 const Sidebar = () => {
     return (
         
-            <nav className="col-md-2 d-md-block bg-light sidebar">
-                <div className="sidebar-sticky">
+            <nav className="col-sm-3 col-md-2 col-lg-2 d-md-block bg-light sidebar">
+                <div className="">
                     <ul className="nav flex-column">
                         <li className="nav-item">
                             <Link to={''} className="nav-link active">
@@ -26,7 +26,7 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={''} className="nav-link">
+                            <Link to={'/users'} className="nav-link">
                                 <span data-feather="users"></span>
                                 Customers
                             </Link>
