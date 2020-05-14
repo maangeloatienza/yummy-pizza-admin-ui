@@ -90,3 +90,40 @@ export const updateBanner = (params,body) => {
             return data;
         })
 }
+
+export function getUserCart(params) {
+    return API.get(`booking-items?${params}`)
+        .then(response => {
+            let data = response.data;
+            
+            return data;
+        });
+}
+
+export function addCart(endpoint, body) {
+    return API.post(`booking-items?`, body)
+        .then(response => {
+            let data = response.data;
+
+            return data;
+        });
+}
+
+export function updateCart(params, body) {
+    return API.put(`booking-items/${params}`, body)
+        .then(response => {
+            let data = response.data;
+
+            return data;
+        })
+}
+
+export function checkout(body) {
+    return API.post(`transactions?`, body)
+        .then(response => {
+            let data = response.data;
+
+            return data;
+        });
+
+}
