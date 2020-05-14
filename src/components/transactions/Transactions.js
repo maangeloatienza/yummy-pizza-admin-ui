@@ -1,6 +1,5 @@
 import React, {useState,useEffect} from 'react';
 import TransactionItem from './TransactionItem';
-// import CreateOrder from './CreateOrder';
 import Pagination from './../pagination/pagination';
 import {getTransactions} from './../../api/apiCall';
 
@@ -40,13 +39,10 @@ const Transactions = () => {
 
     return (
         <div className='container'>
-            {/* <div className='row'>
-                <CreateOrder/>
-            </div> */}
             <h2 className='font-weight-bolder text-left'>View Orders</h2>
 
             <table
-                className='table table-sm table-striped table-dark nowrap'
+                className='table table-sm table-striped table-dark mx-auto'
                 data-page-size={limit}>
                 <thead>
                     <tr>

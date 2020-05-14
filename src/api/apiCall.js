@@ -1,7 +1,6 @@
 import API from '../utils/API';
 
 
-
 export const login = (body) =>{
     return API.post('user/login',body)
         .then(response=>{
@@ -65,3 +64,29 @@ export const getUsers= (params) => {
         })
 }
 
+export const getUser = (params) => {
+    return API.get(`users/${params}`)
+        .then(response => {
+            let data = response.data;
+
+            return data;
+        })
+}
+
+export const getBanners = () => {
+    return API.get(`banners`)
+        .then(response => {
+            let data = response.data;
+
+            return data;
+        })
+}
+
+export const updateBanner = (params,body) => {
+    return API.put(`banners/${params}`,body)
+        .then(response => {
+            let data = response.data;
+
+            return data;
+        })
+}

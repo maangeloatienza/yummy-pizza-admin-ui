@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Pagination from './../pagination/pagination';
 import ProductItem from './ProductItem';
-import CreateProduct from './CreateProduct';
 import {getProducts} from './../../api/apiCall';
 
 
@@ -12,12 +11,11 @@ const Products = () => {
     const [limit, setLimit] = useState(10);
     const [sortItem, setSortItem] = useState('created');
     const [sortDesc, setSortDesc] = useState('DESC');
-    const [save, setSave] = useState(false);
 
 
     useEffect(()=>{
         fetchProducts();
-    },[currentPage,save]);
+    },[currentPage]);
 
     const fetchProducts = () => {
         getProducts(`limit=${limit}&page=${currentPage}&sort_id=${sortItem}&sort_desc=${sortDesc}`).then(response=>{
@@ -34,19 +32,10 @@ const Products = () => {
         setCurrentPage(pageNumber);
     }
 
-    const loader = (save) =>{
-        setSave(save)
-    }
-    
+ 
 
     return (
         <div className='row'>
-            <div className='col-12 mb-5'>
-                <h2 className='font-weight-bolder text-left'>Create Product</h2>
-
-                <CreateProduct fetchProducts={fetchProducts} save={save} loader={loader} />
-            </div>
-
             <div className='col-12'>
                 <h2 className='font-weight-bolder text-left'>View Products</h2>
 
@@ -59,11 +48,11 @@ const Products = () => {
                             </td>
                         </tr>
                         <tr className='d-flex'>
-                            {/* <th className='col-3'>Image</th> */}
-                            <th className='col-3'>Name</th>
-                            <th className='col-3'>Description</th>
-                            <th className='col-3'>Price</th>
-                            <th className='col-3'>Availability</th>
+
+                            <th className='col-4'>Name</th>
+                            {/* <th className='col-3'>Description</th> */}
+                            <th className='col-4'>Price</th>
+                            <th className='col-4'>Availability</th>
                         </tr>
                     </thead>
                     <tbody>
